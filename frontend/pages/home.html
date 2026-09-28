@@ -1,0 +1,47 @@
+<div class="hero">
+  <div>
+    <div class="device-name" id="hero-name">Your system</div>
+    <div class="temp-row">
+      <span class="temp-big" id="hero-temp">--</span><span class="temp-unit">°C indoors</span>
+    </div>
+    <div class="status-line" id="hero-status">Waiting for a reading…</div>
+  </div>
+  <div class="hero-controls">
+    <div class="power-toggle">
+      <span id="power-label">Off</span>
+      <label class="switch">
+        <input type="checkbox" id="power-switch">
+        <span class="track"></span>
+      </label>
+    </div>
+    <div class="target-row">
+      <button id="target-down">−</button>
+      <span class="target-val" id="target-val">24°</span>
+      <button id="target-up">+</button>
+    </div>
+  </div>
+</div>
+
+<div class="grid g3">
+  <div class="card stat">
+    <div class="stat-label">Outdoor</div>
+    <div class="stat-val" id="s-ambient">No data</div>
+    <div class="stat-meta" id="s-ambient-meta"></div>
+  </div>
+  <div class="card stat">
+    <div class="stat-label">Ground</div>
+    <div class="stat-val" id="s-soil">No data</div>
+    <div class="stat-meta" id="s-soil-meta"></div>
+  </div>
+  <div class="card stat">
+    <div class="stat-label">Humidity</div>
+    <div class="stat-val" id="s-humidity">No data</div>
+    <div class="stat-meta" id="s-humidity-meta"></div>
+  </div>
+</div>
+
+<div class="card" id="no-data-card" style="display:none">
+  <h3>No readings yet</h3>
+  <p class="sub">Once your sensors are connected — or you log a reading yourself — it'll show up here automatically.</p>
+  <a class="btn" href="#/device">Set up my device</a>
+</div>

@@ -1,0 +1,60 @@
+<div class="card">
+  <h3>Device details</h3>
+  <div class="grid g2" style="margin-bottom:10px">
+    <label>Name your device <input type="text" id="c-deviceName" placeholder="e.g. Living room cooler"></label>
+    <label>Location <input type="text" id="c-location" placeholder="e.g. Living room"></label>
+  </div>
+  <div class="grid g2" style="margin-bottom:10px">
+    <label>Target temperature (°C) <input type="number" id="c-targetTemp" min="15" max="32" step="1"></label>
+    <label>Fan speed
+      <span class="segmented" id="fan-segmented">
+        <button data-val="low">Low</button><button data-val="medium">Medium</button><button data-val="high">High</button>
+      </span>
+    </label>
+  </div>
+  <button class="btn" id="save-settings">Save</button>
+  <span class="msg" id="settings-msg"></span>
+</div>
+
+<div class="card">
+  <h3>Sensors <span id="conn-badge" class="pill off">0 connected</span></h3>
+  <p class="sub">A sensor only shows a value once a real reading for it has come in.</p>
+  <div class="grid g3" id="sensor-grid"></div>
+</div>
+
+<div class="card">
+  <h3>Log a reading by hand</h3>
+  <p class="sub">Don't have a sensor yet for something? Enter what you measured yourself.</p>
+  <div class="grid g3" style="margin-bottom:10px">
+    <label>Outdoor (°C) <input type="number" step="0.1" id="f-ambientTemp"></label>
+    <label>Ground (°C) <input type="number" step="0.1" id="f-soilTemp"></label>
+    <label>Indoor (°C) <input type="number" step="0.1" id="f-roomTemp"></label>
+    <label>Humidity (%) <input type="number" step="1" id="f-humidity"></label>
+    <label>Airflow (m/s) <input type="number" step="0.1" id="f-velocity"></label>
+    <label>Power draw (W) <input type="number" step="1" id="f-fanWatts"></label>
+  </div>
+  <button class="btn" id="add-reading">Save reading</button>
+  <span class="msg" id="add-msg"></span>
+</div>
+
+<div class="card">
+  <h3>Connect a sensor kit</h3>
+  <p class="sub">If you're using something like an ESP32, have it send readings straight here.</p>
+  <div class="flow">POST /api/readings
+{ "ambientTemp": 34.5, "soilTemp": 24.1, "roomTemp": 27.2, "source": "my-sensor" }</div>
+</div>
+
+<div class="card">
+  <h3>Import from a spreadsheet</h3>
+  <p class="sub">Header row can use: timestamp, ambientTemp, soilTemp, roomTemp, humidity, velocity, fanWatts, source</p>
+  <textarea id="csv-text" rows="4" placeholder="timestamp,roomTemp,ambientTemp&#10;2026-06-01T14:00,26.4,35.1"></textarea>
+  <div style="margin-top:8px"><button class="btn ghost" id="import-csv">Import</button>
+  <span class="msg" id="import-msg"></span></div>
+</div>
+
+<div class="card">
+  <h3>Data</h3>
+  <p class="sub">Export everything, or start fresh.</p>
+  <a class="btn ghost" href="/api/readings/export.csv" download>Export CSV</a>
+  <button class="btn danger" id="clear-readings">Delete all readings</button>
+</div>

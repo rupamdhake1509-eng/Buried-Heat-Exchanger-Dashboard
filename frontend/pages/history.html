@@ -1,0 +1,21 @@
+<div id="empty-state" class="card" style="display:none">
+  <h3>Nothing logged yet</h3>
+  <p class="sub">Your history will fill in as readings come in from your sensors or from manual entries.</p>
+  <a class="btn" href="#/device">Set up my device</a>
+</div>
+
+<div id="history-body" style="display:none">
+  <div class="card">
+    <h3>Temperature over time</h3>
+    <p class="sub">Every point is a reading someone or something actually logged.</p>
+    <div class="chart-box"><canvas id="history-chart"></canvas></div>
+  </div>
+
+  <div class="card">
+    <h3>All readings</h3>
+    <div style="overflow-x:auto"><table>
+      <thead><tr><th>Time</th><th>Indoor</th><th>Outdoor</th><th>Ground</th><th>Humidity</th><th>Airflow</th><th>Power</th><th>Source</th></tr></thead>
+      <tbody id="reading-body"></tbody>
+    </table></div>
+  </div>
+</div>
